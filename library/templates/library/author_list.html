@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% block title %}
+Book List
+{% endblock %}
+{% block content %}
+<html>
+  <body>
+    <h1>Books</h1>
+    <table border="1" id="studentTable">
+      <thead>
+        <tr>
+          <th>Author ID</th>
+          <th>Author Name</th>
+          <th>Author Books</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a in authors %}
+        <tr>
+          <td>{{ a.id }}</td>
+          <td>{{ a.name }}</td>
+          <td>
+            {% for ba in AuthorsBooks %}
+                {% for b in books %}
+                  {% if a.id == ba.AuthorID_id %}
+                    {% if b.id == ba.BookId_id %}
+                       <p>{{ b.Name }}</p>
+                       <br>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+            {% endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <script></script>
+  </body>
+</html>
+{% endblock %}

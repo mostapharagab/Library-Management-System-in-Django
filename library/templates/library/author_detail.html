@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Student Detail{% endblock %}
+{% block content %}
+    <h1>Author Details</h1>
+    <p>
+        <strong>ID:</strong> {{ author.id }}
+    </p>
+    <p>
+        <strong>Name:</strong> {{ author.name }}
+    </p>
+
+    <p>
+        <h2>Author Books:</h2>
+        {% for ba in AuthorsBooks %}
+            {% for b in books %}
+                {% if author.id == ba.AuthorID_id %}
+                {% if b.id == ba.BookId_id %}
+                    <h3>{{b.Name}}</h3>
+                    <br>
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </p>
+
+    <p>
+        <a href="/library/">Back to list</a>
+    </p>
+{% endblock %}
