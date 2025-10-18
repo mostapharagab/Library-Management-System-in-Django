@@ -4,6 +4,7 @@ from django.db import models
 class Books(models.Model):
     Name = models.CharField(max_length=100)
     id = models.IntegerField(primary_key=True)
+    price = models.FloatField(null=True)
     def __str__(self):
         return self.Name
 class Authors(models.Model):

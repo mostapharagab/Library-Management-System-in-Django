@@ -11,6 +11,7 @@ Book List
         <tr>
           <th>Book ID</th>
           <th>Book Name</th>
+          <th>Book Price</th>
           <th>Book Authors</th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@ Book List
         <tr>
           <td>{{ b.id }}</td>
           <td>{{ b.Name }}</td>
+          <td>{{ b.price }}$</td>
           <td>
             {% for ba in AuthorsBooks %}
                 {% for a in authors %}
